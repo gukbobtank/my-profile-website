@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ko" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="이민호 - 반도체 Diffusion 공정 개발 엔지니어 포트폴리오">
+  <title>이민호 | 반도체 엔지니어</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: { DEFAULT: '#F59E0B', light: '#FCD34D', dim: '#B45309' },
+            sky: { DEFAULT: '#0EA5E9', light: '#87CEEB' },
+            navy: { DEFAULT: '#1E3A8A', light: '#3B82F6' },
+            orange: { DEFAULT: '#EA580C', light: '#FB923C' }
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.6s ease-out forwards',
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4,0,0.6,1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <style>
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes gradientShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #F59E0B, #EA580C, #1E3A8A);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 4s ease infinite;
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-active {
+      color: #F59E0B;
+      border-bottom: 2px solid #F59E0B;
+      padding-bottom: 2px;
+    }
+
+    .dark .nav-active {
+      color: #FCD34D;
+      border-bottom: 2px solid #FCD34D;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+
+    .dark ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-sky-300 via-amber-100 to-orange-300 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 relative overflow-x-hidden">
+  <div class="fixed inset-0 opacity-10 dark:opacity-5 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg width=%22100%22 height=%22100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M10 20 L90 20 L90 80 Q50 100 10 80 Z%22 fill=%22none%22 stroke=%22%231e3a8a%22 stroke-width=%222%22/%3E%3C/svg%3E'); background-repeat: repeat;"></div>
+
+  <!-- Navigation -->
+  <nav id="main-nav" class="fixed top-0 w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-amber-200 dark:border-slate-700 transition-all duration-300 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#hero" class="font-mono font-bold text-xl text-amber-500 dark:text-amber-300 hover:text-amber-600 dark:hover:text-violet-300 transition-colors">MH.</a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 transition-colors">About</a>
+          <a href="#career" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 transition-colors">Career</a>
+          <a href="#skills" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 transition-colors">Skills</a>
+          <a href="#projects" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 transition-colors">Projects</a>
+          <a href="#contact" class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 transition-colors">Contact</a>
+        </div>
+
+        <!-- Right Controls -->
+        <div class="flex items-center gap-4">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle theme">
+            <svg id="sun-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1m-16 0H1m15.364 1.636l.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg id="moon-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+            </svg>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="menu-btn" class="md:hidden p-2 rounded-lg bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+            <svg id="menu-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-amber-200 dark:border-slate-700 py-4 space-y-1">
+        <a href="#about" class="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/30 rounded-lg transition-colors">About</a>
+        <a href="#career" class="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/30 rounded-lg transition-colors">Career</a>
+        <a href="#skills" class="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/30 rounded-lg transition-colors">Skills</a>
+        <a href="#projects" class="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/30 rounded-lg transition-colors">Projects</a>
+        <a href="#contact" class="block px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-900/30 rounded-lg transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen pt-24 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-sky-200 via-amber-100 to-orange-200 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+    <!-- Background Orbs -->
+    <div class="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-amber-500 to-blue-500 rounded-full blur-3xl opacity-20 dark:opacity-10 pointer-events-none"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-tr from-sky-400 to-blue-500 rounded-full blur-3xl opacity-15 dark:opacity-5 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 dark:bg-amber-900/50 border border-amber-200 dark:border-amber-800 mb-8 scroll-reveal">
+        <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+        <span class="text-sm font-medium text-amber-600 dark:text-violet-300">반도체 엔지니어</span>
+      </div>
+
+      <!-- Name -->
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 scroll-reveal">
+        이민호
+        <div class="text-3xl sm:text-4xl lg:text-5xl mt-2 gradient-text">Lee Min-ho</div>
+      </h1>
+
+      <!-- Role Subtitle with Typing -->
+      <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-400 font-light mb-8 scroll-reveal h-7">
+        <span id="typed-text">Diffusion 공정 개발자</span>
+      </p>
+
+      <!-- Description -->
+      <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-12 leading-relaxed scroll-reveal">
+        반도체 파운드리부터 메모리 R&D까지, Diffusion 공정 전문가입니다.<br>
+        데이터 기반 공정 최적화와 차세대 V-NAND 기술을 연구합니다.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 scroll-reveal">
+        <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-amber-500 to-blue-600 hover:from-amber-600 hover:to-blue-700 text-white font-medium rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/30">
+          프로젝트 보기
+        </a>
+        <a href="#contact" class="px-8 py-3 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 font-medium rounded-lg transition-colors duration-300">
+          연락하기
+        </a>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="flex items-center justify-center gap-4 mb-16 scroll-reveal">
+        <a href="https://github.com/leemin-ho" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-amber-50 dark:hover:bg-amber-900/50 hover:text-amber-500 dark:hover:text-amber-300 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+        <a href="mailto:leenseang119@naver.com" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="animate-bounce">
+        <svg class="w-6 h-6 mx-auto text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 sm:py-24 bg-white/90 dark:bg-slate-950/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading -->
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-xs font-mono uppercase tracking-widest text-amber-500 dark:text-amber-300">// about me</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">소개</h2>
+        <div class="mt-4 mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-amber-500 via-blue-500 to-orange-500"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Left: About Text -->
+        <div class="scroll-reveal">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">DIFFUSION 공정 엔지니어</h3>
+          <p class="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+            반도체 산업에서 5년 이상의 경험을 쌓았으며, DIFFUSION 공정 개발과 최적화 분야에서 전문성을 보유하고 있습니다. 삼성전자의 파운드리 사업부에서 기술팀으로 근무했고, SK Hynix에서는 R&D 부서와 Heraion 공정팀에서 차세대 V-NAND 기술 개발에 참여했습니다.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+            Python과 Spotfire를 활용한 데이터 분석, 공정 파라미터 최적화, 그리고 실시간 SPC 자동화 등 정량적인 방식으로 공정 성능을 개선하는 것을 즐깁니다.
+          </p>
+
+          <!-- Stats -->
+          <div class="mt-8 grid grid-cols-3 gap-4">
+            <div class="bg-white/80 dark:bg-slate-800 rounded-lg p-4 text-center scroll-reveal">
+              <div class="text-3xl font-bold text-amber-500 dark:text-amber-300">5+</div>
+              <div class="text-xs text-slate-600 dark:text-slate-400 mt-1 uppercase tracking-wide">Years</div>
+            </div>
+            <div class="bg-white/80 dark:bg-slate-800 rounded-lg p-4 text-center scroll-reveal">
+              <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">3</div>
+              <div class="text-xs text-slate-600 dark:text-slate-400 mt-1 uppercase tracking-wide">Companies</div>
+            </div>
+            <div class="bg-white/80 dark:bg-slate-800 rounded-lg p-4 text-center scroll-reveal">
+              <div class="text-3xl font-bold text-emerald-600 dark:text-emerald-400">∞</div>
+              <div class="text-xs text-slate-600 dark:text-slate-400 mt-1 uppercase tracking-wide">Passion</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Timeline -->
+        <div id="career" class="scroll-reveal">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">커리어</h3>
+          <div class="relative space-y-8 pl-4 border-l-2 border-amber-500 dark:border-amber-300">
+            <!-- Timeline Item 1 -->
+            <div class="scroll-reveal">
+              <div class="absolute -left-[13px] top-1 w-6 h-6 rounded-full bg-amber-500 dark:bg-amber-300 border-4 border-white dark:border-slate-950"></div>
+              <span class="inline-block text-xs font-mono text-amber-500 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/50 px-2.5 py-1 rounded border border-amber-200 dark:border-amber-800">2023.09 ~ 현재</span>
+              <h4 class="mt-3 text-lg font-semibold text-slate-900 dark:text-white">SK Hynix Heraion</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">공정 Diffusion 팀</p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">차세대 V-NAND 공정 Diffusion 개발 및 최적화</p>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="scroll-reveal">
+              <div class="absolute -left-[13px] top-1 w-6 h-6 rounded-full bg-blue-500 dark:bg-blue-400 border-4 border-white dark:border-slate-950"></div>
+              <span class="inline-block text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-2.5 py-1 rounded border border-blue-200 dark:border-blue-800">2021.11 ~ 2023.09</span>
+              <h4 class="mt-3 text-lg font-semibold text-slate-900 dark:text-white">SK Hynix 미기원 R&D</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">공정 Diffusion</p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">R&D 공정 Diffusion 기술 개발 및 신공정 런칭</p>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="scroll-reveal">
+              <div class="absolute -left-[13px] top-1 w-6 h-6 rounded-full bg-orange-500 dark:bg-emerald-400 border-4 border-white dark:border-slate-950"></div>
+              <span class="inline-block text-xs font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2.5 py-1 rounded border border-emerald-200 dark:border-emerald-800">2019.09 ~ 2021.11</span>
+              <h4 class="mt-3 text-lg font-semibold text-slate-900 dark:text-white">삼성전자 파운드리사업부</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Diffusion 기술팀</p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">파운드리 공정 Diffusion 기술 개발 및 지원</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 sm:py-24 bg-gradient-to-br from-sky-50 to-amber-50 dark:bg-slate-900/50 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading -->
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-xs font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400">// technical stack</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">기술 스택</h2>
+        <div class="mt-4 mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-amber-500 via-blue-500 to-orange-500"></div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1: Process Technology -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl p-6 border border-amber-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/50 flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-900/50 transition-colors">
+              <svg class="w-5 h-5 text-amber-500 dark:text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">공정 기술</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">Diffusion</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-violet-300 border border-amber-200 dark:border-amber-800">Thermal Oxidation</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">LPCVD</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">V-NAND</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">FODO Scheme</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Equipment -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl p-6 border border-amber-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/50 flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-900/50 transition-colors">
+              <svg class="w-5 h-5 text-amber-500 dark:text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">장비 / 기술</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-violet-300 border border-amber-200 dark:border-amber-800">Melt Laser</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">Furnace</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">ALD</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">CVD</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Data Analysis -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl p-6 border border-amber-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/50 flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-900/50 transition-colors">
+              <svg class="w-5 h-5 text-amber-500 dark:text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">데이터 분석</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-violet-300 border border-amber-200 dark:border-amber-800">Spotfire</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">Python</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">Pandas</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">SPC</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Programming -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl p-6 border border-amber-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/50 flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-900/50 transition-colors">
+              <svg class="w-5 h-5 text-amber-500 dark:text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">프로그래밍</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-violet-300 border border-amber-200 dark:border-amber-800">Python</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">데이터 시각화</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">통계분석</span>
+          </div>
+        </div>
+
+        <!-- Card 5: Semiconductor Domain -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl p-6 border border-amber-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/50 flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-900/50 transition-colors">
+              <svg class="w-5 h-5 text-amber-500 dark:text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">반도체 도메인</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">DRAM</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-violet-300 border border-amber-200 dark:border-amber-800">V-NAND</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">Foundry</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">R&D</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Collaboration -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl p-6 border border-amber-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-900/50 flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-900/50 transition-colors">
+              <svg class="w-5 h-5 text-amber-500 dark:text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 4H9m6 16H9m6-7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">협업 / 방법론</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-violet-300 border border-amber-200 dark:border-amber-800">Cross-functional</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">DOE</span>
+            <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">FMEA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 sm:py-24 bg-white/90 dark:bg-slate-950/80 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading -->
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-600 dark:text-emerald-400">// portfolio</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">프로젝트</h2>
+        <div class="mt-4 mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-amber-500 via-blue-500 to-orange-500"></div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-amber-200 dark:border-slate-700 hover:border-amber-300/60 dark:hover:border-amber-500/60 hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col">
+          <div class="h-2 bg-gradient-to-r from-amber-500 to-blue-500"></div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs px-2.5 py-0.5 rounded bg-amber-50 dark:bg-amber-900/50 text-amber-600 dark:text-violet-300 border border-amber-200 dark:border-amber-800">공정 개발</span>
+              <span class="text-xs text-slate-400 dark:text-slate-500 font-mono">2023</span>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-amber-500 dark:group-hover:text-amber-300 transition-colors">Diffusion 공정 수율 최적화</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 flex-1 leading-relaxed">
+              Python과 Spotfire를 활용한 공정 파라미터 데이터 분석 및 이상 패턴 자동 감지 시스템 구축
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4">
+              <span class="text-xs px-2 py-0.5 rounded font-mono bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Python</span>
+              <span class="text-xs px-2 py-0.5 rounded font-mono bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Spotfire</span>
+              <span class="text-xs px-2 py-0.5 rounded font-mono bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Pandas</span>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center gap-3">
+              <a href="https://github.com/leemin-ho" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-300 transition-colors">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-amber-200 dark:border-slate-700 hover:border-blue-400/60 dark:hover:border-blue-500/60 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 flex flex-col">
+          <div class="h-2 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs px-2.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">R&D</span>
+              <span class="text-xs text-slate-400 dark:text-slate-500 font-mono">2022</span>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">V-NAND Thermal Budget 분석 툴</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 flex-1 leading-relaxed">
+              V-NAND 적층 공정에서의 열 이력(thermal history) 시뮬레이션 및 시각화 도구
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4">
+              <span class="text-xs px-2 py-0.5 rounded font-mono bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Python</span>
+              <span class="text-xs px-2 py-0.5 rounded font-mono bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Matplotlib</span>
+              <span class="text-xs px-2 py-0.5 rounded font-mono bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">FODO</span>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center gap-3">
+              <a href="https://github.com/leemin-ho" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="scroll-reveal group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-amber-200 dark:border-slate-700 hover:border-emerald-400/60 dark:hover:border-orange-500/60 hover:shadow-xl hover:shadow-orange-500/10 transition-all duration-300 flex flex-col">
+          <div class="h-2 bg-gradient-to-r from-orange-500 to-green-500"></div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs px-2.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">SPC</span>
+              <span class="text-xs text-slate-400 dark:text-slate-500 font-mono">2024</span>
+            </div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Melt Laser SPC 대시보드</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 flex-1 leading-relaxed">
+              Melt Laser 공정 주요 파라미터에 대한 통계적 공정 관리(SPC) 자동화 리포트 시스템
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4">
+              <span class="text-xs px-2 py-0.5 rounded font-mono bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Python</span>
+              <span class="text-xs px-2 py-0.5 rounded font-mono bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Spotfire</span>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center gap-3">
+              <a href="https://github.com/leemin-ho" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 sm:py-24 bg-gradient-to-br from-amber-100 to-orange-200 dark:bg-slate-900/50 backdrop-blur-sm">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading -->
+      <div class="text-center mb-16 scroll-reveal">
+        <span class="text-xs font-mono uppercase tracking-widest text-amber-500 dark:text-amber-300">// let's connect</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">연락하기</h2>
+        <div class="mt-4 mx-auto w-16 h-1 rounded-full bg-gradient-to-r from-amber-500 via-blue-500 to-orange-500"></div>
+      </div>
+
+      <p class="text-center text-slate-600 dark:text-slate-400 mb-12 scroll-reveal">
+        새로운 기회나 협업에 대해 언제든지 연락주세요.
+      </p>
+
+      <!-- Contact Cards -->
+      <div class="grid sm:grid-cols-2 gap-10 scroll-reveal">
+        <!-- Email Card -->
+        <a href="mailto:leenseang119@naver.com" class="group flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-800 rounded-xl border border-amber-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
+          <div class="w-12 h-12 rounded-full bg-amber-50 dark:bg-amber-900/50 flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-900/50 transition-colors">
+            <svg class="w-6 h-6 text-amber-500 dark:text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-slate-900 dark:text-white">이메일</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">leenseang119@naver.com</span>
+        </a>
+
+        <!-- GitHub Card -->
+        <a href="https://github.com/leemin-ho" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center gap-3 p-6 bg-white dark:bg-slate-800 rounded-xl border border-amber-200 dark:border-slate-700 hover:border-amber-300 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
+          <div class="w-12 h-12 rounded-full bg-amber-50 dark:bg-amber-900/50 flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-900/50 transition-colors">
+            <svg class="w-6 h-6 text-amber-500 dark:text-amber-300" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-slate-900 dark:text-white">GitHub</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">github.com/leemin-ho</span>
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <footer class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+        <p>© 2026 이민호 · Built with HTML & Tailwind CSS</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // ============ Dark Mode Toggle ============
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+
+    function updateThemeIcons() {
+      if (html.classList.contains('dark')) {
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      } else {
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      }
+    }
+
+    // Initialize from localStorage or system preference
+    if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+    updateThemeIcons();
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+      updateThemeIcons();
+    });
+
+    // ============ Mobile Navigation ============
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden');
+      if (isOpen) {
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        menuBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ============ Navbar Scroll Effect ============
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        nav.classList.add('shadow-md');
+      } else {
+        nav.classList.remove('shadow-md');
+      }
+    }, { passive: true });
+
+    // ============ Active Nav Link Highlight ============
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"], #mobile-menu a[href^="#"]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('nav-active'));
+          const active = document.querySelector(`nav a[href="#${entry.target.id}"], #mobile-menu a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('nav-active');
+        }
+      });
+    }, { threshold: 0.4, rootMargin: '-64px 0px 0px 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    // ============ Scroll Reveal Animation ============
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ============ Smooth Scroll for Nav Links ============
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          const offset = 64;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ============ Typed Text Effect ============
+    const roles = [
+      'Diffusion 공정 개발자',
+      'Python 데이터 분석',
+      'V-NAND 기술 연구',
+      '반도체 공정 엔지니어'
+    ];
+    let roleIndex = 0, charIndex = 0, isDeleting = false;
+    const typedEl = document.getElementById('typed-text');
+
+    function type() {
+      const current = roles[roleIndex];
+      typedEl.textContent = isDeleting
+        ? current.slice(0, charIndex--)
+        : current.slice(0, charIndex++);
+
+      if (!isDeleting && charIndex === current.length + 1) {
+        setTimeout(() => { isDeleting = true; type(); }, 2000);
+        return;
+      }
+      if (isDeleting && charIndex === -1) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        charIndex = 0;
+      }
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+    type();
+  </script>
+</body>
+
+</html>
